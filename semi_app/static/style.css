@@ -1,0 +1,25 @@
+.container {
+    background-color: #79a8a9;
+    min-height: 150px;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+#index {
+    text-align: center;
+}
+
+.header {
+    display:flex;
+    justify-content: space-between;
+}
+
+.back {
+    margin: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}

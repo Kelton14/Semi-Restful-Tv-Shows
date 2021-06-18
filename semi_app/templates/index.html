@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semi Restful Tv Shows</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">    
+        <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <div class="container" id="index">
+        <h1>All Shows</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Network</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            {% for show in shows %}
+            <tbody>
+                <tr name="shows">
+                    <td>{{show.id}}</td>
+                    <td>{{show.title}}</td>
+                    <td>{{show.network}}</td>
+                    <td>{{show.release_date}}</td>
+                    <td>
+                        <a href="/shows/{{show.id}}" class="btn btn-sm btn-dark">Show</a>
+                        <a href="/shows/{{show.id}}/edit" class="btn btn-sm btn-dark">Edit</a>
+                        <a href="/delete/{{show.id}}" class="btn btn-sm btn-dark">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        <a href="/shows/new">Add a New Show</a>
+    </div>
+</body>
+</html>
